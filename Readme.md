@@ -22,7 +22,7 @@ A powerful desktop application for extracting, viewing, and analyzing metadata f
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ImageMetadataExtractor.git
+git clone https://github.com/RavindharCYS/Image-Extractor.git
 cd ImageMetadataExtractor
 ```
 
@@ -139,12 +139,6 @@ ImageMetadataExtractor/
 │       ├── validators.py    # Input validation
 │       └── exporters.py     # Export results to different formats
 │
-├── tests/                   # Unit tests
-│   ├── __init__.py
-│   ├── test_metadata_extractor.py
-│   ├── test_gps_parser.py
-│   └── test_device_identifier.py
-│
 └── resources/
     ├── icons/              # Application icons
     └── sample_images/      # Sample images for testing
@@ -219,6 +213,6 @@ GPS data visualization on an interactive map
 
 ## Contact
 
-Your Name - your.email@example.com
+Your Name - ravindhar.upm@gmail.com
 
-Project Link: https://github.com/yourusername/ImageMetadataExtractor
+Project Link: https://github.com/RavindharCYS/Image-Extractor.git
