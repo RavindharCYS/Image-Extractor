@@ -13,7 +13,7 @@ import logging
 import tempfile
 import shutil
 from datetime import datetime
-from typing import Dict, Any, List, Optional, Union, BinaryIO, TextIO
+from typing import Dict, Any, List, Optional, Union, BinaryIO, TextIO, Tuple
 import re
 
 # Get the package logger

@@ -14,7 +14,7 @@ import traceback
 import platform
 import tempfile
 from datetime import datetime
-from typing import Optional, Dict, Any, List, Union, TextIO
+from typing import Optional, Dict, Any, List, Union, TextIO, Tuple
 
 # Configure basic logging immediately
 logging.basicConfig(
