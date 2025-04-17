@@ -1,0 +1,39 @@
+# Core dependencies
+Pillow>=9.0.0        # For image processing and basic metadata extraction
+exifread>=3.0.0      # For detailed EXIF data extraction
+piexif>=1.1.3        # For reading and writing EXIF data
+hachoir>=3.1.2       # For extracting metadata from various file formats
+python-magic>=0.4.24 # For file type detection
+
+# GUI enhancements
+ttkthemes>=3.2.0     # For better looking Tkinter themes
+ttkwidgets>=0.12.0   # Additional Tkinter widgets
+Pygments>=2.10.0     # For syntax highlighting in text display
+
+# Geolocation services
+geopy>=2.2.0         # For converting GPS coordinates to addresses
+folium>=0.12.1       # For generating interactive maps
+reverse_geocoder>=1.5.1  # For offline reverse geocoding
+
+# Data handling and export
+pandas>=1.3.0        # For data manipulation and export
+openpyxl>=3.0.9      # For Excel export support
+reportlab>=3.6.1     # For PDF generation
+pyyaml>=6.0          # For configuration files
+
+# Steganography detection (optional advanced feature)
+stegano>=0.10.1      # For basic steganography detection
+opencv-python>=4.5.3 # For image processing and analysis
+
+# Development and testing
+pytest>=7.0.0        # For unit testing
+pytest-cov>=3.0.0    # For test coverage reporting
+flake8>=4.0.1        # For code linting
+black>=22.1.0        # For code formatting
+pyinstaller>=5.0.0   # For creating standalone executables
+
+# Optional - uncomment if needed
+# requests>=2.27.1    # For web API interactions
+# matplotlib>=3.5.1   # For data visualization
+# pyheif>=0.6.1       # For HEIF/HEIC image support (iOS images)
+# pycryptodome>=3.14.1 # For encryption/decryption features
