@@ -17,6 +17,12 @@ import sys
 import platform
 from typing import Dict, Any, List, Optional, Union
 
+# Configure basic logging immediately
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s: %(message)s"
+)
+
 # Setup package-level logger
 logger = logging.getLogger(__name__)
 
@@ -31,6 +37,8 @@ __all__ = [
     'is_valid_path',
     'format_metadata_value',
     'get_system_info',
+    'convert_coordinates',
+    'convert_timestamp',
 ]
 
 # Import utility functions
@@ -40,7 +48,7 @@ try:
     from .formatters import format_metadata_value, format_file_size, format_timestamp
     from .converters import convert_coordinates, convert_timestamp
 except ImportError as e:
-    logger.error(f"Error importing utility modules: {e}")
+    logger.warning(f"Error importing utility modules: {e}")
     
     # Define placeholder functions if imports fail
     def setup_logging(*args, **kwargs):
@@ -67,6 +75,14 @@ except ImportError as e:
     def format_metadata_value(value):
         """Placeholder for format_metadata_value function."""
         return str(value)
+    
+    def convert_coordinates(coordinates):
+        """Placeholder for convert_coordinates function."""
+        return None
+    
+    def convert_timestamp(timestamp):
+        """Placeholder for convert_timestamp function."""
+        return None
 
 
 def get_system_info() -> Dict[str, Any]:
@@ -263,12 +279,11 @@ def initialize_utils():
     sys_info = get_system_info()
     logger.debug(f"System information: {sys_info}")
     
-    # Setup default logging if not already configured
-    if not logging.getLogger().handlers:
-        setup_logging()
-    
     logger.info("Utils package initialized")
 
 
 # Initialize when imported
-initialize_utils()
+try:
+    initialize_utils()
+except Exception as e:
+    print(f"Error initializing utils package: {e}")

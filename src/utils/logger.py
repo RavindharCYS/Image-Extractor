@@ -16,6 +16,12 @@ import tempfile
 from datetime import datetime
 from typing import Optional, Dict, Any, List, Union, TextIO
 
+# Configure basic logging immediately
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s: %(message)s"
+)
+
 # Default log levels
 DEFAULT_CONSOLE_LEVEL = logging.INFO
 DEFAULT_FILE_LEVEL = logging.DEBUG
@@ -26,6 +32,12 @@ DEFAULT_CONSOLE_FORMAT = "%(levelname)s: %(message)s"
 
 # Global logger instance
 logger = logging.getLogger(__name__)
+
+# Ensure logger has handlers
+if not logger.handlers:
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(logging.Formatter(DEFAULT_CONSOLE_FORMAT))
+    logger.addHandler(console_handler)
 
 
 def setup_logging(
@@ -521,7 +533,7 @@ def create_gui_log_handler(text_widget) -> logging.Handler:
             # Use after() to schedule in the main thread
             self.text_widget.after(0, _insert)
     
-    # Create and configure the handler
+        # Create and configure the handler
     handler = TextWidgetHandler(text_widget)
     handler.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))
     handler.setLevel(logging.INFO)
@@ -682,7 +694,7 @@ def configure_logger_for_testing() -> logging.Logger:
 def initialize():
     """Initialize the logger module."""
     # Set up basic logging if not already configured
-    if not logging.getLogger().handlers:
+    if not any(isinstance(h, logging.FileHandler) for h in logging.getLogger().handlers):
         setup_logging()
     
     # Set up exception logging
@@ -692,4 +704,7 @@ def initialize():
 
 
 # Initialize when imported
-initialize()
+try:
+    initialize()
+except Exception as e:
+    print(f"Error initializing logger module: {e}")
